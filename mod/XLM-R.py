@@ -64,12 +64,12 @@ def main():
         print(f"Epoch {epoch+1} | Loss: {total_loss:.4f} | Accuracy: {train_acc:.4f}")
 
     # ========== Predict on Dev Set ==========
-    dev_df = pd.read_csv("/kaggle/input/aidata/test_unlabeled.csv")
-    dev_texts = dev_df["content"].tolist()
+    testset_df = pd.read_csv("/kaggle/input/aidata/test_unlabeled.csv")
+    testset_texts = dev_df["content"].tolist()
 
-    dev_enc = tokenizer(dev_texts, padding=True, truncation=True, max_length=512, return_tensors="pt")
-    dev_dataset = TensorDataset(dev_enc["input_ids"], dev_enc["attention_mask"])
-    dev_loader = DataLoader(dev_dataset, batch_size=4)
+    testset_enc = tokenizer(dev_texts, padding=True, truncation=True, max_length=512, return_tensors="pt")
+    testset_dataset = TensorDataset(testset_enc["input_ids"], testset_enc["attention_mask"])
+    testset_loader = DataLoader(testset_dataset, batch_size=4)
 
     model.eval()
     all_preds = []
@@ -81,11 +81,11 @@ def main():
             preds = torch.argmax(outputs.logits, dim=1).cpu().numpy()
             all_preds.extend(preds)
 
-    dev_df["label"] = [ "human" if p == 0 else "machine" for p in all_preds ]
-    dev_df = dev_df.sort_values("id").reset_index(drop=True)
+    testset_df["label"] = [ "human" if p == 0 else "machine" for p in all_preds ]
+    testset_df = dev_df.sort_values("id").reset_index(drop=True)
 
     # Save predictions
-    dev_df[["id", "label"]].to_csv("predictions.csv", index=False)
+    testset_df[["id", "label"]].to_csv("predictions.csv", index=False)
 
     # Zip
     with zipfile.ZipFile("pred.zip", "w") as zipf:
