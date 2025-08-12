@@ -1,4 +1,4 @@
-# models/train_arabert.py
+
 import pandas as pd
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
@@ -10,7 +10,7 @@ from zipfile import ZipFile
 def main():
     # ========== Load Data ==========
     train_df = pd.read_csv("/kaggle/input/aidata/ground_truth.csv")
-    dev_df = pd.read_csv("/kaggle/input/aidata/test_unlabeled.csv")
+    testset_df = pd.read_csv("/kaggle/input/aidata/test_unlabeled.csv")
 
     # Drop missing values in important columns
     train_df = train_df.dropna(subset=["content", "Class"])
@@ -75,11 +75,11 @@ def main():
             predicted_class_id = torch.argmax(logits, dim=-1).item()
             return label_encoder.inverse_transform([predicted_class_id])[0]
 
-    # Apply classification to dev set
-    dev_df["label"] = dev_df["content"].apply(classify)
+    # Apply classification to test set
+    testset_df["label"] = testset_df["content"].apply(classify)
 
     # Save predictions
-    dev_df[["id", "label"]].to_csv("predictions.csv", index=False)
+    testset_df[["id", "label"]].to_csv("predictions.csv", index=False)
 
     # Zip predictions
     with ZipFile("predictions.zip", "w") as zipf:
