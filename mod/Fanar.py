@@ -17,7 +17,7 @@ from zipfile import ZipFile
 def main():
     # ========== Load Data ==========
     train_df = pd.read_csv("/kaggle/input/aiiidata/ground_truth.csv")
-    dev_df = pd.read_csv("/kaggle/input/testset/test_unlabeled.csv")
+    testset_df = pd.read_csv("/kaggle/input/testset/test_unlabeled.csv")
 
     # Format for instruction tuning
     train_data = train_df.dropna(subset=["content", "Class"])
@@ -106,10 +106,10 @@ def main():
         return "machine" if "machine" in decoded.lower() else "human"
 
     # Predict on dev set
-    dev_df["label"] = dev_df["content"].apply(generate_prediction)
+    testset_df["label"] = testset_df["content"].apply(generate_prediction)
 
     # Save predictions
-    dev_df[["id", "label"]].to_csv("predictions.csv", index=False)
+    testset_df[["id", "label"]].to_csv("predictions.csv", index=False)
 
     # Zip predictions
     with ZipFile("predictions.zip", "w") as zipf:
