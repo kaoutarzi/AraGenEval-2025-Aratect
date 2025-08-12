@@ -4,7 +4,10 @@
 This repository contains the code and resources for our submission to the AraGenEval Shared Task 2025, where our system focuses on detecting AI-generated Arabic text.
 Our approach combines multiple multilingual and Arabic-specific pre-trained language models and uses an ensemble voting mechanism for robust performance.
 ## Train Models
-python fanar.py
+\begin{minted}{bash}
+python train_fanar_lora.py
+\end{minted}
+
 
 
 ## Results
