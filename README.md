@@ -33,6 +33,16 @@ These models were trained separately on the ARATECT dataset and combined using a
 `python Arabert.py`
 `python XLM-R.py`
 
+### Pretrained Model Checkpoints
+
+Fine-tuned checkpoints for our models are available for download on Kaggle :
+
+- **Fanar (7B / 9B)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-fanar  
+- **XLM-RoBERTa (XLM-R)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetunedxlm-r  
+- **AraBERT (aubmindlab/bert-base-arabertv2)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-arabert  
+
+These checkpoints correspond to the best-performing models used in our ensemble (described in [Approach](#approach)), and can be loaded directly for inference, evaluation, or further experimentation.
+
 
 ## Results
 
