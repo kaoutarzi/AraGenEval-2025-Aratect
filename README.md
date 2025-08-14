@@ -30,6 +30,8 @@ These models were trained separately on the ARATECT dataset and combined using a
 
 ## Training
 `python fanar.py`
+`python Arabert.py`
+`python XLM-R.py`
 
 
 ## Results
