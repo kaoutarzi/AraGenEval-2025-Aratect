@@ -8,7 +8,7 @@
 - [Citation](#citation)
 
   
- This repository contains the code and resources for our submission to the AraGenEval Shared Task 2025, where our system focuses on detecting AI-generated Arabic text.
+ This repository contains the code and resources for our submission to the [AraGenEval 2025 Shared Task](https://ezzini.github.io/AraGenEval/), where our system focuses on detecting AI-generated Arabic text.
 Our approach combines multiple multilingual and Arabic-specific pre-trained language models and uses an ensemble voting mechanism for robust performance.
 ## Task Description
 The AraGenEval shared task, part of the ArabicNLP 2025 conference, challenges participants to advance Arabic NLP through three subtasks: authorship style transfer, authorship identification, and AI-generated text detection.
