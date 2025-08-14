@@ -1,4 +1,4 @@
-# AraGenEval-2025-Aratect
+# LMSA at AraGenEval Shared Task: Ensemble-Based Detection of AI-Generated Arabic Text Using Multilingual and Arabic-Specific Models
 ## Table of Contents
 - [Task Description](#task-description)
 - [Dataset](#dataset)
