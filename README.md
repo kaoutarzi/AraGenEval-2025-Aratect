@@ -37,9 +37,9 @@ These models were trained separately on the ARATECT dataset and combined using a
 
 Fine-tuned checkpoints for our models are available for download on Kaggle :
 
-- **Fanar (7B / 9B)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-fanar  
+- **Fanar** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-fanar  
 - **XLM-RoBERTa (XLM-R)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetunedxlm-r  
-- **AraBERT (aubmindlab/bert-base-arabertv2)** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-arabert  
+- **AraBERT** — Fine-tuned checkpoint: https://www.kaggle.com/models/kaoutarzita/finetuned-arabert  
 
 These checkpoints correspond to the best-performing models used in our ensemble (described in [Approach](#approach)), and can be loaded directly for inference, evaluation, or further experimentation.
 
